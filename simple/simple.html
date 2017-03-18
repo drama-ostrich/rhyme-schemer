@@ -8,22 +8,40 @@
 <body>
 <div class="container">
   <div class="row">
-    <div class="col-xs-4"><textarea id="lyrics-input" class="col-container"></textarea></div>
-    <div class="col-xs-4"><div id="tag-area" class="col-container"></div></div>
-    <div class="col-xs-4"><pre id="json-output" class="col-container"></pre></div>
+    <div class="col-xs-4">
+      <h2>Input</h2>
+      <textarea id="lyrics-input" class="col-container"></textarea>
+    </div>
+    <div class="col-xs-4">
+      <h2>Tagged</h2>
+      <div id="tag-area" class="col-container"></div></div>
+    <div class="col-xs-4">
+      <h2>JSON</h2>
+      <p>Minified: (click once to highlight)</p>
+      <pre id="json-output" class=""></pre>
+      <p>Semi-formatted:</p>
+      <pre id="json-output-format" class="col-container"></pre>
+
+    </div>
   </div>
 
 </div>
 
   <script type="text/javascript" src="js/jquery-3.2.0.min.js"></script>
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="js/handlebars.runtime-v4.0.5.js"></script>
-  <script type="text/javascript" src="js/simple.js"></script>
+  <script type="text/javascript" src="js\handlebars-v4.0.5.js"></script>
 
   <script id="lyrics-template" type="text/x-handlebars-template">
     {{#each lines}}
-      <div>{{this.text}}</div>
+      <div class="lyrics-line">
+        {{#each words}}
+        <span class="lyrics-word {{type}} rhyme-{{rhyme}}">{{text}}</span>
+        {{/each}}
+      </div>
     {{/each}}
   </script>
+
+  <script type="text/javascript" src="js/simple.js"></script>
+
 </body>
 </html>
