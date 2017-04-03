@@ -1,0 +1,16 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+textarea{
+  width:90%;
+  min-height: 400px;
+}
+.Word{
+  display:inline-block;
+  padding:5px;
+}
+.Word:hover{
+  background-color:yellow;
+}
