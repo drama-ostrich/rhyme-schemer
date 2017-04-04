@@ -3,15 +3,11 @@ import Word from './Word.js';
 
 class Line extends Component {
 
-  constructor(props) {
-      super(props);
-      this.state = {words: props.text.split(' ')};
-    }
-
   render() {
+    const words = this.props.text.split(' ');
     return (
       <div className="Line">
-      {this.state.words.map((word, index) =>
+      {words.map((word, index) =>
         <Word key={index} text={word} />
       )}
       </div>
