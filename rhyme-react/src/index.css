@@ -7,10 +7,5 @@ textarea{
   width:90%;
   min-height: 400px;
 }
-.Word{
-  display:inline-block;
-  padding:5px;
-}
-.Word:hover{
-  background-color:yellow;
-}
+ul{padding:0; margin:0}
+li{padding:0; margin:0}

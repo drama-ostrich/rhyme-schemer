@@ -22,3 +22,29 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.Word{
+  display:inline-block;
+  padding:5px;
+  position:relative;
+}
+.Word.active{
+  background-color:#333;
+  color:white;
+}
+.Word:hover{
+  background-color:#ddd;
+}
+.Word.active:hover{
+  background-color:#333;
+}
+.WordMenu{
+  padding: 20px;
+  background-color: white;
+  position: absolute;
+  left: 0px;
+  z-index: 10;
+  border: 1px solid black;
+  box-shadow: 2px 2px 6px -1px;
+  color:black;
+}
