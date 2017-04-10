@@ -5,22 +5,55 @@ class Word extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {showMenu: false};
-    this.onClick = this.onClick.bind(this);
+
+    var rhymeColors =
+    {
+        'AA': 'blue',
+        'AE': 'green',
+        'AH': 'tomato',
+        'AO': 'pink',
+        'AW': 'red',
+        'AY': 'grey',
+        'EH': 'orange',
+        'ER': 'teal',
+        'EY': 'blue',
+        'IH': 'blue',
+        'IY': 'blue',
+        'OW': 'blue',
+        'OY': 'blue',
+        'UH': 'blue',
+        'UW': 'blue',
+    };
+
+    this.state = {showMenu: false, rhymeType: null, rhymeColors: rhymeColors};
   }
 
-  onClick(e) {
+  handleWordOptionClick = (choice) => {
+    this.setState({rhymeType: choice});
+  }
+
+  onClick = (e) => {
     // here you know which component is that, so you can call parent method
     this.setState((prevState, props) =>({showMenu: prevState.showMenu === false}));
   }
 
   render() {
+    const wordColor = this.state.rhymeType ? this.state.rhymeColors[this.state.rhymeType] : null;
+    const spanProps = {
+      className: "Word " +  (this.state.showMenu ? 'active' : '')
+    }
+    if(wordColor) spanProps.style = {color: "white", backgroundColor:wordColor};
+
     return (
-      <span className={"Word " +  (this.state.showMenu ? 'active' : '')} onClick={this.onClick}>
-        {this.props.text}
-        {this.state.showMenu &&
-          <WordMenu />
-        }
+      <span {...spanProps} onClick={this.onClick}>
+
+          {this.props.text}
+
+          {this.state.showMenu &&
+            <WordMenu
+              handleWordOptionClick={this.handleWordOptionClick}
+              rhymeColors={this.state.rhymeColors}/>
+          }
       </span>
 
     );

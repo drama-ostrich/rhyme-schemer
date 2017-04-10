@@ -1,36 +1,19 @@
 import React, { Component } from 'react';
+import WordMenuChoice from './WordMenuChoice.js';
 
 class WordMenu extends Component {
 
-  constructor(props) {
-    super(props);
-    var rhymeTypes =
-    [
-        'AA',
-        'AE',
-        'AH',
-        'AO',
-        'AW',
-        'AY',
-        'EH',
-        'ER',
-        'EY',
-        'IH',
-        'IY',
-        'OW',
-        'OY',
-        'UH',
-        'UW',
-      ];
-    this.state = {rhymeTypes: rhymeTypes};
-  }
-
   render() {
+    const rhymeColors = Object.getOwnPropertyNames(this.props.rhymeColors);
     return (
       <div className="WordMenu">
         <ul>
-          {this.state.rhymeTypes.map((sound, index) =>
-            <li key={index}>{sound}</li>
+          {rhymeColors.map((rhymeType, index) =>
+            <WordMenuChoice
+              key={index}
+              type={rhymeType}
+              color={this.props.rhymeColors[rhymeType]}
+              onClick={this.props.handleWordOptionClick}/>
           )}
         </ul>
       </div>
