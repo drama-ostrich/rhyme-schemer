@@ -8,6 +8,7 @@ class Word extends Component {
 
     var rhymeColors =
     {
+        '--': 'white',
         'AA': 'blue',
         'AE': 'green',
         'AH': 'tomato',
@@ -29,7 +30,8 @@ class Word extends Component {
   }
 
   handleWordOptionClick = (choice) => {
-    this.setState({rhymeType: choice});
+      choice = choice !== '--' ? choice : null;
+      this.setState({rhymeType: choice});
   }
 
   onClick = (e) => {
@@ -42,7 +44,7 @@ class Word extends Component {
     const spanProps = {
       className: "Word " +  (this.state.showMenu ? 'active' : '')
     }
-    if(wordColor) spanProps.style = {color: "white", backgroundColor:wordColor};
+    if(wordColor && wordColor != 'white') spanProps.style = {color: "white", backgroundColor:wordColor};
 
     return (
       <span {...spanProps} onClick={this.onClick}>
