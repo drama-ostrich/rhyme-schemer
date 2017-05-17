@@ -8,7 +8,12 @@ class Line extends Component {
     return (
       <div className="Line">
       {words.map((word, index) =>
-        <Word key={index} text={word} />
+        <Word
+          key={index}
+          text={word}
+          setSelectedWord={this.props.setSelectedWord}
+          selectedWord={this.props.selectedWord}
+          />
       )}
       </div>
     );
