@@ -5,15 +5,16 @@ import './WordMenu.css';
 class WordMenu extends Component {
 
   render() {
-    const rhymeColors = Object.getOwnPropertyNames(this.props.rhymeColors);
+    const rhymeTypes = Object.getOwnPropertyNames(this.props.rhymeTypes);
     return (
       <div className="WordMenu">
         <ul className="WordMenu__ul">
-          {rhymeColors.map((rhymeType, index) =>
+          {rhymeTypes.map((rhymeType, index) =>
             <WordMenuChoice
               key={index}
               type={rhymeType}
-              color={this.props.rhymeColors[rhymeType]}
+              color={this.props.rhymeTypes[rhymeType].color}
+              hint={this.props.rhymeTypes[rhymeType].hint}
               onClick={this.props.handleWordOptionClick}/>
           )}
         </ul>

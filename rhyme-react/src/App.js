@@ -22,6 +22,18 @@ class App extends Component {
     this.setState({songModel: songModel});
   }
 
+  componentDidMount() {
+      document.addEventListener('mousedown', this.handleClickNothing);
+  }
+
+  componentWillUnmount() {
+      document.removeEventListener('mousedown', this.handleClickNothing);
+  }
+
+  handleClickNothing(e){
+    console.log(e.target);
+  }
+
   handleRhymeChoice = (rhymeType, wordIndex) => {
 
     // Song model state mutator

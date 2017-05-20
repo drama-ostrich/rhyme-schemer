@@ -6,23 +6,24 @@ class Word extends Component {
 
   constructor(props) {
     super(props);
-    this.rhymeColors = {
-        '--': 'white',
-        'AA': 'blue',
-        'AE': 'green',
-        'AH': 'tomato',
-        'AO': 'pink',
-        'AW': 'red',
-        'AY': 'grey',
-        'EH': 'orange',
-        'ER': 'teal',
-        'EY': 'blue',
-        'IH': 'blue',
-        'IY': 'blue',
-        'OW': 'blue',
-        'OY': 'blue',
-        'UH': 'blue',
-        'UW': 'blue',
+    // Phonemes from http://www.speech.cs.cmu.edu/cgi-bin/cmudict
+    this.rhymeTypes = {
+        '--': {type:'--', color:'white', hint:'None'},
+        'AA': {type:'--', color:'steelblue', hint:'odd'},
+        'AE': {type:'--', color:'lightcoral', hint:'at'},
+        'AH': {type:'--', color:'seagreen', hint:'hut'},
+        'AO': {type:'--', color:'lightskyblue', hint:'ought'},
+        'AW': {type:'--', color:'sandybrown', hint:'cow'},
+        'AY': {type:'--', color:'gray', hint:'hide'},
+        'EH': {type:'--', color:'mediumorchid', hint:'ed'},
+        'ER': {type:'--', color:'aquamarine', hint:'hurt'},
+        'EY': {type:'--', color:'olivedrab', hint:'ate'},
+        'IH': {type:'--', color:'violet', hint:'it'},
+        'IY': {type:'--', color:'seashell', hint:'eat'},
+        'OW': {type:'--', color:'mistyrose', hint:'oat'},
+        'OY': {type:'--', color:'maroon', hint:'toy'},
+        'UH': {type:'--', color:'darkkhaki', hint:'hood'},
+        'UW': {type:'--', color:'lightcyan', hint:'two'}
     };
   }
 
@@ -41,10 +42,10 @@ class Word extends Component {
 
   render() {
     const selected = this.props.selectedWord === this;
-    const wordColor = this.rhymeColors[this.props.model.rhymeType];
+    const rhymeType = this.rhymeTypes[this.props.model.rhymeType];
     const spanProps = {className: "Word " +  (selected ? 'active' : '')}
-    if(wordColor && wordColor !== 'white')
-      spanProps.style = {color: "white", backgroundColor:wordColor};
+    if(rhymeType && rhymeType.color !== 'white')
+      spanProps.style = {color: "white", backgroundColor:rhymeType.color};
 
     return (
       <span {...spanProps} onClick={this.onClick}>
@@ -52,7 +53,7 @@ class Word extends Component {
           {selected &&
             <WordMenu
               handleWordOptionClick={this.handleWordOptionClick}
-              rhymeColors={this.rhymeColors}/>
+              rhymeTypes={this.rhymeTypes}/>
           }
       </span>
     );
