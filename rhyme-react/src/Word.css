@@ -1,0 +1,15 @@
+.Word{
+  display:inline-block;
+  padding:5px;
+  position:relative;
+}
+.Word.active{
+  background-color:#333;
+  color:white;
+}
+.Word:hover{
+  background-color:#ddd;
+}
+.Word.active:hover{
+  background-color:#333;
+}

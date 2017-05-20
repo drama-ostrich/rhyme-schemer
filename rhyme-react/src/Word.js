@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import WordMenu from './WordMenu.js';
+import './Word.css';
 
 class Word extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {rhymeType: null};
-
     this.rhymeColors = {
         '--': 'white',
         'AA': 'blue',
@@ -28,39 +27,34 @@ class Word extends Component {
   }
 
   handleWordOptionClick = (choice) => {
-      choice = choice !== '--' ? choice : null;
-      this.setState({rhymeType: choice});
+    choice = choice !== '--' ? choice : null;
+      this.props.handleRhymeChoice(choice, this.props.model.index);
   }
 
   onClick = (e) => {
-    if (this.props.selectedWord === this){
+    // If this was clicked while already selected then unselect it
+    if (this.props.selectedWord === this)
       this.props.setSelectedWord(null);
-    }
-    else{
+    else
       this.props.setSelectedWord(this);
-    }
-
   }
 
   render() {
-    const wordColor = this.state.rhymeType ? this.rhymeColors[this.state.rhymeType] : null;
-    const spanProps = {
-      className: "Word " +  (this.state.showMenu ? 'active' : '')
-    }
-    if(wordColor && wordColor !== 'white') spanProps.style = {color: "white", backgroundColor:wordColor};
+    const selected = this.props.selectedWord === this;
+    const wordColor = this.rhymeColors[this.props.model.rhymeType];
+    const spanProps = {className: "Word " +  (selected ? 'active' : '')}
+    if(wordColor && wordColor !== 'white')
+      spanProps.style = {color: "white", backgroundColor:wordColor};
 
     return (
       <span {...spanProps} onClick={this.onClick}>
-
-          {this.props.text}
-
-          {this.props.selectedWord === this &&
+          {this.props.model.text}
+          {selected &&
             <WordMenu
               handleWordOptionClick={this.handleWordOptionClick}
               rhymeColors={this.rhymeColors}/>
           }
       </span>
-
     );
   }
 }

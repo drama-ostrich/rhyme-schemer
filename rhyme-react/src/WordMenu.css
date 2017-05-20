@@ -1,0 +1,13 @@
+.WordMenu{
+  padding: 20px;
+  background-color: white;
+  position: absolute;
+  left: 0px;
+  z-index: 10;
+  border: 1px solid black;
+  box-shadow: 2px 2px 6px -1px;
+  color:black;
+}
+.WordMenu__ul{
+  width:200px;
+}

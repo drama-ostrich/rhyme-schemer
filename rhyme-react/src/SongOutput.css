@@ -1,0 +1,6 @@
+.SongOutput{}
+.SongOutput__pre{
+  height:700px;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+}

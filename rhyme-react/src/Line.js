@@ -4,15 +4,15 @@ import Word from './Word.js';
 class Line extends Component {
 
   render() {
-    const words = this.props.text.split(' ');
     return (
       <div className="Line">
-      {words.map((word, index) =>
+      {this.props.model.words.map((word) =>
         <Word
-          key={index}
-          text={word}
+          key={word.index}
+          model={word}
           setSelectedWord={this.props.setSelectedWord}
           selectedWord={this.props.selectedWord}
+          handleRhymeChoice={this.props.handleRhymeChoice}
           />
       )}
       </div>

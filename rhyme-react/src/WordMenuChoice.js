@@ -1,14 +1,10 @@
 import React, { Component } from 'react';
+import './WordMenuChoice.css';
 
 class WordMenuChoice extends Component {
 
-  // constructor(props) {
-  //   super(props);
-  // }
-
   handleOnClick = (e) => {
     this.props.onClick(e.target.value);
-
   }
 
   render() {
@@ -18,8 +14,10 @@ class WordMenuChoice extends Component {
           style={{backgroundColor: this.props.color}}
           onClick={this.handleOnClick}
           value={this.props.type}>{this.props.type}</button>
+          <span>hey</span>
       </li>
     );
   }
+  
 }
 export default WordMenuChoice;

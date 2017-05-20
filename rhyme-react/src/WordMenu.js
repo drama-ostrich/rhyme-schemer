@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import WordMenuChoice from './WordMenuChoice.js';
+import './WordMenu.css';
 
 class WordMenu extends Component {
 
@@ -7,7 +8,7 @@ class WordMenu extends Component {
     const rhymeColors = Object.getOwnPropertyNames(this.props.rhymeColors);
     return (
       <div className="WordMenu">
-        <ul>
+        <ul className="WordMenu__ul">
           {rhymeColors.map((rhymeType, index) =>
             <WordMenuChoice
               key={index}

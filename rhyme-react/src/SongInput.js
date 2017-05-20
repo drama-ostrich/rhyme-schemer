@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './SongInput.css'
 
 class SongInput extends Component {
 
@@ -10,7 +11,7 @@ class SongInput extends Component {
     return (
       <div className="SongInput">
       <h1>Song Input</h1>
-      <textarea onChange={this.handleChange} defaultValue={this.props.text}></textarea>
+      <textarea className="SongInput__textarea" onChange={this.handleChange} defaultValue={this.props.text}></textarea>
 
       </div>
     );
