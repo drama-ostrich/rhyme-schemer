@@ -1,3 +1,5 @@
+*.sqlite3
+
 # pip virtualenv
 schemer_env/
 
