@@ -10,6 +10,7 @@
   text-align: center;
   padding:100px;
   color:white;
+  min-height: 800px;
 }
 .SongInput__textarea{
   height: 200px;

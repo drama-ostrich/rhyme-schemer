@@ -50,7 +50,14 @@ class Word extends Component {
       spanProps.style = {color: "white", backgroundColor:rhymeType.color};
 
     return (
-      <span ref="wordSpan" {...spanProps} onClick={this.onClick}>
+      <span
+          {...spanProps}
+          ref="wordSpan" 
+          onClick={this.onClick}
+          unselectable="on"
+          onselectstart="return false;"
+          onmousedown="return false;"
+        >
           {this.props.model.text}
           {selected &&
             <WordMenu

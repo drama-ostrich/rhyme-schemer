@@ -26,7 +26,7 @@ class App extends Component {
     this.setState({songModel: songModel, showInput: false});
   }
 
-  
+
 
   handleRhymeChoice = (rhymeType, wordIndex) => {
 
@@ -65,23 +65,17 @@ class App extends Component {
         clickNewSong={this.clickNewSong}
         clickEdit={this.clickEdit}
         showInput={this.state.showInput}/>
-        <div className="container">
 
-          <div className="input-overlay">
-            <div className="row">
-              <div className="col-md-12">
-                <SongInput
-                  showInput={this.state.showInput}
-                  text={this.state.songModel.text}
-                  handleInput={this.handleSongInput}/>
-              </div>
-            </div>
-          </div>
+        <div className="input-overlay">
+          <SongInput
+            showInput={this.state.showInput}
+            text={this.state.songModel.text}
+            handleInput={this.handleSongInput}/>
+        </div>
 
+        <div className="container main-container">
           <div className="row">
-            <div className="col-md-2">
-
-            </div>
+            <div className="col-md-2"></div>
             <div className="col-md-6">
               <Song model={this.state.songModel} handleRhymeChoice={this.handleRhymeChoice}/>
             </div>

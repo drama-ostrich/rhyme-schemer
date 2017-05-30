@@ -18,3 +18,9 @@ d96459 brick
 .navbar-default .navbar-nav>li>a:hover{background-color:#f2e394;color:black;}
 
 .navbar-default .navbar-brand{color:#f2e394; font-size: 48px; font-weight: bold;}
+.navbar-default .navbar-brand:hover{color:white;}
+.navbar.navbar-default{
+  border-radius: 0px;
+  border: 0px solid #000;
+  margin:0px;
+}
