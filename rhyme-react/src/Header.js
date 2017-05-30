@@ -20,12 +20,12 @@ class Header extends Component {
 
           <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul className="nav navbar-nav">
-              <li className="active"><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
+              <li className={this.props.showInput ? "" : "active"}>
+                <a onClick={this.props.clickEdit} href="#">Edit</a>
+              </li>
+              <li className={this.props.showInput ? "active" : ""}>
+                <a onClick={this.props.clickNewSong} href="#">New Song</a>
+              </li>
             </ul>
           </div>
         </div>

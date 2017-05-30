@@ -15,25 +15,18 @@ class App extends Component {
 
     var songModel = new SongModel(defaultSongText);
 
-    this.state = {songModel: songModel};
+    this.state = {
+      songModel: songModel,
+      showInput: false
+    };
   }
 
   handleSongInput = (newSongText) => {
     var songModel = new SongModel(newSongText);
-    this.setState({songModel: songModel});
+    this.setState({songModel: songModel, showInput: false});
   }
 
-  componentDidMount() {
-      document.addEventListener('mousedown', this.handleClickNothing);
-  }
-
-  componentWillUnmount() {
-      document.removeEventListener('mousedown', this.handleClickNothing);
-  }
-
-  handleClickNothing(e){
-    console.log(e.target);
-  }
+  
 
   handleRhymeChoice = (rhymeType, wordIndex) => {
 
@@ -56,15 +49,38 @@ class App extends Component {
     });
   }
 
+  clickNewSong = () => {
+    this.setState({showInput: true});
+  }
+
+  clickEdit = () => {
+    this.setState({showInput: false});
+  }
+
 
   render() {
     return (
       <div className="App">
-      <Header/>
+      <Header
+        clickNewSong={this.clickNewSong}
+        clickEdit={this.clickEdit}
+        showInput={this.state.showInput}/>
         <div className="container">
+
+          <div className="input-overlay">
+            <div className="row">
+              <div className="col-md-12">
+                <SongInput
+                  showInput={this.state.showInput}
+                  text={this.state.songModel.text}
+                  handleInput={this.handleSongInput}/>
+              </div>
+            </div>
+          </div>
+
           <div className="row">
             <div className="col-md-2">
-              <SongInput text={this.state.songModel.text} handleInput={this.handleSongInput}/>
+
             </div>
             <div className="col-md-6">
               <Song model={this.state.songModel} handleRhymeChoice={this.handleRhymeChoice}/>

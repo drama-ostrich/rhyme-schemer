@@ -40,6 +40,8 @@ class Word extends Component {
       this.props.setSelectedWord(this);
   }
 
+
+
   render() {
     const selected = this.props.selectedWord === this;
     const rhymeType = this.rhymeTypes[this.props.model.rhymeType];
@@ -48,7 +50,7 @@ class Word extends Component {
       spanProps.style = {color: "white", backgroundColor:rhymeType.color};
 
     return (
-      <span {...spanProps} onClick={this.onClick}>
+      <span ref="wordSpan" {...spanProps} onClick={this.onClick}>
           {this.props.model.text}
           {selected &&
             <WordMenu
