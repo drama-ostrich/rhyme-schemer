@@ -1,4 +1,6 @@
 .App {
+  background-color:white;
+  color:#333
 }
 
 @keyframes App-logo-spin {
@@ -9,3 +11,11 @@
 ul{
   list-style: none;
 }
+/*
+588c7e teal
+f2e394 sandstone
+f2ae72 creamsicle
+d96459 brick
+8c4646 cabernet
+
+*/

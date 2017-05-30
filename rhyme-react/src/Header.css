@@ -1,0 +1,20 @@
+/*
+588c7e teal
+f2e394 sandstone
+f2ae72 creamsicle
+d96459 brick
+8c4646 cabernet
+
+*/
+.navbar.navbar-default{color:white;background-color:#588c7e;}
+.navbar-collapse{color:white;background-color:#588c7e;}
+.navbar-default .navbar-nav>.active>a,
+.navbar-default .navbar-nav>.active>a:focus,
+.navbar-default .navbar-nav>.active>a:hover{
+  background-color: #f2e394;
+  color:#333;
+}
+.navbar-default .navbar-nav>li>a{color:white;}
+.navbar-default .navbar-nav>li>a:hover{background-color:#f2e394;color:black;}
+
+.navbar-default .navbar-brand{color:#f2e394; font-size: 48px; font-weight: bold;}

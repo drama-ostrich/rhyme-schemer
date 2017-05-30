@@ -1,4 +1,13 @@
 .SongInput{}
 .SongInput__textarea{
-  height:700px;
+  height: 700px;
+  padding: 5px;
+  border: none;
+  box-shadow: 1px 2px 6px -1px #555 inset;
+  /*
+  background-color: #e2d384;
+  color: #c2b364;
+  box-shadow: 1px 2px 6px -1px #6f6530 inset;
+  */
+
 }

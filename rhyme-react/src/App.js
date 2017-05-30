@@ -4,6 +4,7 @@ import Song from './Song.js';
 import SongInput from './SongInput.js';
 import SongOutput from './SongOutput.js';
 import SongModel from './models/SongModel.js'
+import Header from './Header.js'
 
 class App extends Component {
 
@@ -59,6 +60,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+      <Header/>
         <div className="container">
           <div className="row">
             <div className="col-md-2">

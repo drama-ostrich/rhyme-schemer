@@ -10,9 +10,7 @@ class SongInput extends Component {
   render() {
     return (
       <div className="SongInput">
-      <h1>Song Input</h1>
-      <textarea className="SongInput__textarea" onChange={this.handleChange} defaultValue={this.props.text}></textarea>
-
+        <textarea className="SongInput__textarea" onChange={this.handleChange} defaultValue={this.props.text}></textarea>
       </div>
     );
   }

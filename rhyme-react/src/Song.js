@@ -17,7 +17,6 @@ class Song extends Component {
   render() {
     return (
       <div className="Song">
-      <h1>Song Text</h1>
         {this.props.model.lines.map((line) =>
           <Line
             key={line.index}
